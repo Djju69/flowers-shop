@@ -21,165 +21,6 @@
   background: white;
 }
 
-/* Telegram Button Styles */
-.telegram-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #0088cc;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  font-size: 14px;
-}
-
-.telegram-btn:hover {
-  background: #006699;
-  color: white;
-  text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
-}
-
-.telegram-btn img {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
-}
-
-/* Floating Telegram Button */
-.floating-telegram-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: #0088cc;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.floating-telegram-btn:hover {
-  background: #006699;
-  color: white;
-  text-decoration: none;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(0, 136, 204, 0.5);
-}
-
-.floating-telegram-btn img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-}
-
-/* Order Redirect Section */
-.order-redirect {
-  text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 15px;
-  margin: 30px 0;
-}
-
-.order-redirect h3 {
-  color: var(--primary-color);
-  margin-bottom: 15px;
-  font-size: 24px;
-}
-
-.order-redirect p {
-  color: #666;
-  margin-bottom: 25px;
-  font-size: 16px;
-}
-
-.btn-telegram {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #0088cc;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.btn-telegram:hover {
-  background: #006699;
-  color: white;
-  text-decoration: none;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
-}
-
-/* Vietnam Flag Icon */
-.vietnam-flag {
-  display: inline-block;
-  width: 20px;
-  height: 15px;
-  background: linear-gradient(to bottom, #da251d 33%, #ffffff 33%, #ffffff 66%, #da251d 66%);
-  border-radius: 2px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-/* Price Formatting */
-.price-vnd {
-  font-weight: 700;
-  color: var(--primary-color);
-  font-size: 18px;
-}
-
-.price-vnd::after {
-  content: " VND";
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .lang-selector {
-    margin-right: 10px;
-  }
-  
-  .lang-selector select {
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-  
-  .telegram-btn {
-    padding: 8px 15px;
-    font-size: 12px;
-  }
-  
-  .floating-telegram-btn {
-    bottom: 15px;
-    right: 15px;
-    padding: 12px 16px;
-    font-size: 14px;
-  }
-  
-  .floating-telegram-btn img {
-    width: 20px;
-    height: 20px;
-  }
-}
-
 /* Modern Color Variables - FROM LOGO */
 :root {
   /* Цвета ИЗ ЛОГОТИПА */
@@ -252,7 +93,7 @@ body {
 }
 
 /* Buttons with modern styling - LOGO COLORS */
-.btn, .telegram-btn, .btn-primary, .btn-telegram {
+.btn, .btn-primary {
   background: linear-gradient(135deg, var(--pink) 0%, #D81B7E 100%);
   border: 2px solid var(--gold);
   border-radius: var(--radius-md);
@@ -263,113 +104,20 @@ body {
   color: white;
 }
 
-.btn:hover, .telegram-btn:hover, .btn-primary:hover, .btn-telegram:hover {
+.btn:hover, .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 16px rgba(233, 30, 140, 0.4);
   border-color: var(--pink);
 }
 
-.btn:active, .telegram-btn:active {
-  transform: translateY(-1px);
-}
-
-/* Product cards with animations */
-.product-card, .img-box {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.product-card:hover, .img-box:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Modern gradients */
-.gradient-primary {
-  background: linear-gradient(135deg, #FF6B9D 0%, #C471ED 100%);
-}
-
-.gradient-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-/* Smooth transitions for all interactive elements */
-a, button {
-  transition: all 0.3s ease;
-}
-
-/* Modern navbar */
-.navbar {
-  background: rgba(255, 255, 255, 0.98) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-sm);
-}
-
-/* SVG Icon Styles */
-.telegram-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.floating-telegram-btn svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* Enhanced Mobile Responsive Styles */
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  /* Крупные кнопки на мобильных */
-  .telegram-btn {
-    padding: 14px 25px !important;
-    font-size: 15px;
-    min-height: 48px;
+  .lang-selector {
+    margin-right: 10px;
   }
   
-  /* Увеличить размер текста на мобильных */
-  body, p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  /* Крупные кнопки - минимум 44x44px (Apple guidelines) */
-  .btn, .telegram-btn {
-    min-height: 44px;
-    padding: 12px 25px;
-  }
-  
-  .floating-telegram-btn {
-    min-height: 50px;
-    padding: 12px 20px;
-  }
-  
-  .language-switcher button {
-    min-height: 36px;
-    font-size: 12px;
-  }
-}
-
-/* Extra small devices (phones, 320px and up) */
-@media (max-width: 480px) {
   .lang-selector select {
-    padding: 6px 8px;
-    font-size: 11px;
-  }
-  
-  /* Упрощаем кнопки на очень маленьких экранах */
-  .telegram-btn {
-    padding: 10px 20px !important;
-  }
-  
-  .floating-telegram-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    padding: 0;
-    flex-direction: column;
-  }
-  
-  .floating-telegram-btn span {
-    display: none;
+    padding: 6px 10px;
+    font-size: 12px;
   }
 }
