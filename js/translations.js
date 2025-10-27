@@ -226,11 +226,11 @@ function changeLanguage(lang) {
     }
   });
   
-  // Обновляем активную кнопку языка
-  document.querySelectorAll('.language-switcher button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+  // Обновляем select язык
+  const select = document.getElementById('languageSelect');
+  if (select) {
+    select.value = lang;
+  }
   
   // Обновляем атрибут lang у html элемента
   document.documentElement.lang = lang;
@@ -270,12 +270,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   changeLanguage(savedLang);
-  
-  // Добавляем обработчики для кнопок переключения языка
-  document.querySelectorAll('.language-switcher button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      changeLanguage(lang);
-    });
-  });
 });

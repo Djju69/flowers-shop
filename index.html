@@ -49,11 +49,13 @@
             </span>
           </a>
           
-          <!-- Language Switcher -->
-          <div class="language-switcher">
-            <button data-lang="ru" class="active">🇷🇺 RU</button>
-            <button data-lang="en">🇬🇧 EN</button>
-            <button data-lang="vi">🇻🇳 VI</button>
+          <!-- Language Selector -->
+          <div class="lang-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+              <option value="ru" selected>🇷🇺 RU</option>
+              <option value="en">🇬🇧 EN</option>
+              <option value="vi">🇻🇳 VI</option>
+            </select>
           </div>
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

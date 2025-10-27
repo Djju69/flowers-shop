@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель - Лавка цветов</title>
+  <link rel="stylesheet" href="vendor/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom-styles.css">
+  <style>
+    .admin-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      border: 3px solid var(--gold);
+    }
+    
+    .admin-container h1 {
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: var(--brown);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--pink);
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--pink) 0%, #D81B7E 100%);
+      color: white;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(233, 30, 140, 0.4);
+    }
+    
+    .product-list {
+      margin-top: 40px;
+    }
+    
+    .product-item {
+      padding: 20px;
+      background: var(--beige);
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border: 2px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .product-item:hover {
+      border-color: var(--pink);
+    }
+    
+    .product-info h3 {
+      color: var(--brown);
+      margin-bottom: 5px;
+    }
+    
+    .product-info p {
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .btn-delete {
+      padding: 10px 20px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .btn-delete:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4);
+    }
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    
+    .checkbox-label input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h1>🌸 Админ-панель</h1>
+    <p style="color: var(--brown); margin-bottom: 30px;">Добавление товаров в каталог</p>
+    
+    <form id="productForm">
+      <div class="form-group">
+        <label>Название товара (RU) *</label>
+        <input type="text" id="nameRu" required placeholder="Букет 'Весенний'">
+      </div>
+      
+      <div class="form-group">
+        <label>Название товара (EN)</label>
+        <input type="text" id="nameEn" placeholder="Spring Bouquet">
+      </div>
+      
+      <div class="form-group">
+        <label>Название товара (VI)</label>
+        <input type="text" id="nameVi" placeholder="Bó hoa Mùa Xuân">
+      </div>
+      
+      <div class="form-group">
+        <label>Описание (RU) *</label>
+        <textarea id="descRu" required placeholder="Нежный букет из 15 тюльпанов..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Описание (EN)</label>
+        <textarea id="descEn" placeholder="Gentle bouquet of 15 tulips..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Описание (VI)</label>
+        <textarea id="descVi" placeholder="Bó hoa dịu dàng..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Цена (VND) *</label>
+        <input type="number" id="price" required placeholder="750000">
+      </div>
+      
+      <div class="form-group">
+        <label>Категория *</label>
+        <select id="category" required>
+          <option value="bouquets">Букеты / Bouquets / Bó hoa</option>
+          <option value="roses">Розы / Roses / Hoa hồng</option>
+          <option value="tulips">Тюльпаны / Tulips / Hoa tulip</option>
+          <option value="compositions">Композиции / Compositions / Tác phẩm</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>URL фото</label>
+        <input type="url" id="imageUrl" placeholder="https://example.com/flower.jpg">
+      </div>
+      
+      <div class="form-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="inStock" checked>
+          <span>В наличии</span>
+        </label>
+      </div>
+      
+      <button type="submit" class="btn-submit">➕ Добавить товар</button>
+    </form>
+    
+    <div class="product-list">
+      <h2 style="color: var(--brown); margin-bottom: 20px;">📦 Список товаров</h2>
+      <div id="productsList"></div>
+    </div>
+  </div>
+  
+  <script src="js/admin.js"></script>
+</body>
+</html>

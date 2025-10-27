@@ -1,32 +1,24 @@
-/* Language Switcher Styles */
-.language-switcher {
-  display: flex;
-  gap: 8px;
+/* Language Selector Styles - Compact dropdown */
+.lang-selector {
   margin-right: 20px;
-  align-items: center;
+  position: relative;
 }
 
-.language-switcher button {
-  padding: 6px 12px;
-  border: 2px solid #ddd;
-  background: white;
+.lang-selector select {
+  padding: 8px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background: var(--beige);
   cursor: pointer;
-  border-radius: 20px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
+  color: var(--brown);
   transition: all 0.3s ease;
-  min-width: 50px;
 }
 
-.language-switcher button:hover {
-  border-color: var(--primary-color);
-  background: #f8f9fa;
-}
-
-.language-switcher button.active {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
+.lang-selector select:hover {
+  border-color: var(--pink);
+  background: white;
 }
 
 /* Telegram Button Styles */
@@ -161,15 +153,13 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .language-switcher {
+  .lang-selector {
     margin-right: 10px;
-    gap: 5px;
   }
   
-  .language-switcher button {
-    padding: 4px 8px;
-    font-size: 11px;
-    min-width: 40px;
+  .lang-selector select {
+    padding: 6px 10px;
+    font-size: 12px;
   }
   
   .telegram-btn {
@@ -190,22 +180,26 @@
   }
 }
 
-/* Modern Color Variables */
+/* Modern Color Variables - FROM LOGO */
 :root {
-  /* Основные цвета - яркие, сочные */
-  --primary-color: #FF6B9D;      /* Розовый (цветы) */
-  --secondary-color: #4ECDC4;    /* Бирюзовый (свежесть) */
-  --accent-color: #FFE66D;       /* Жёлтый (солнце) */
-  --success-color: #06D6A0;      /* Зелёный */
+  /* Цвета ИЗ ЛОГОТИПА */
+  --pink: #E91E8C;           /* Розовый лотос */
+  --gold: #D4A574;           /* Золотой контур */
+  --beige: #F5EFE0;          /* Бежевый фон */
+  --brown: #3D2817;          /* Тёмно-коричневый текст */
+  --orange: #E8A05D;         /* Оранжевый (из солнца) */
   
-  /* Текст */
-  --text-dark: #2D3748;
-  --text-light: #718096;
+  /* Применение цветов */
+  --primary-color: var(--pink);     /* Основной цвет кнопок */
+  --secondary-color: var(--gold);   /* Акценты, рамки */
+  --accent-color: var(--orange);    /* Цены, важные элементы */
+  --text-dark: var(--brown);        /* Основной текст */
+  --bg-light: var(--beige);         /* Фон сайта */
   
-  /* Фон */
+  /* Дополнительные цвета */
   --bg-white: #FFFFFF;
-  --bg-light: #F7FAFC;
   --bg-dark: #1A202C;
+  --text-light: #666;
   
   /* Тени для глубины */
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
@@ -222,9 +216,14 @@
   --bg-color: var(--bg-light);
 }
 
-/* Update existing styles to use new colors */
+/* Update existing styles to use new colors FROM LOGO */
+body {
+  background-color: var(--beige);
+  color: var(--brown);
+}
+
 .hero_area {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--beige) 0%, #FFF8E7 100%);
   position: relative;
   overflow: hidden;
 }
@@ -236,8 +235,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #FF6B9D 0%, #C471ED 100%);
-  opacity: 0.95;
+  background: linear-gradient(135deg, rgba(233, 30, 140, 0.1) 0%, rgba(212, 165, 116, 0.1) 100%);
+  opacity: 0.5;
   z-index: 0;
 }
 
@@ -252,21 +251,22 @@
   font-size: 24px;
 }
 
-/* Buttons with modern styling */
+/* Buttons with modern styling - LOGO COLORS */
 .btn, .telegram-btn, .btn-primary, .btn-telegram {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--pink) 0%, #D81B7E 100%);
+  border: 2px solid var(--gold);
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
   font-weight: 600;
   padding: 12px 30px;
   box-shadow: var(--shadow-md);
+  color: white;
 }
 
 .btn:hover, .telegram-btn:hover, .btn-primary:hover, .btn-telegram:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
-  border-color: #C471ED;
+  box-shadow: 0 8px 16px rgba(233, 30, 140, 0.4);
+  border-color: var(--pink);
 }
 
 .btn:active, .telegram-btn:active {
@@ -351,15 +351,9 @@ a, button {
 
 /* Extra small devices (phones, 320px and up) */
 @media (max-width: 480px) {
-  .language-switcher {
-    flex-wrap: wrap;
-  }
-  
-  .language-switcher button {
-    padding: 8px 12px;
+  .lang-selector select {
+    padding: 6px 8px;
     font-size: 11px;
-    flex: 1;
-    min-width: auto;
   }
   
   /* Упрощаем кнопки на очень маленьких экранах */
