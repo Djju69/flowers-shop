@@ -190,33 +190,120 @@
   }
 }
 
-/* Custom Color Variables */
+/* Modern Color Variables */
 :root {
-  --primary-color: #FF6B6B;      /* Коралловый */
-  --secondary-color: #4ECDC4;    /* Бирюзовый */
-  --accent-color: #FFD93D;       /* Желтый */
-  --text-color: #2D3748;         /* Темно-серый */
-  --bg-color: #F7FAFC;           /* Светлый фон */
+  /* Основные цвета - яркие, сочные */
+  --primary-color: #FF6B9D;      /* Розовый (цветы) */
+  --secondary-color: #4ECDC4;    /* Бирюзовый (свежесть) */
+  --accent-color: #FFE66D;       /* Жёлтый (солнце) */
+  --success-color: #06D6A0;      /* Зелёный */
+  
+  /* Текст */
+  --text-dark: #2D3748;
+  --text-light: #718096;
+  
+  /* Фон */
+  --bg-white: #FFFFFF;
+  --bg-light: #F7FAFC;
+  --bg-dark: #1A202C;
+  
+  /* Тени для глубины */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.2);
+  
+  /* Скругления */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  
+  /* Старые переменные для совместимости */
+  --text-color: var(--text-dark);
+  --bg-color: var(--bg-light);
 }
 
 /* Update existing styles to use new colors */
 .hero_area {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero_area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #FF6B9D 0%, #C471ED 100%);
+  opacity: 0.95;
+  z-index: 0;
+}
+
+.hero_area > * {
+  position: relative;
+  z-index: 1;
 }
 
 .navbar-brand span {
   color: var(--primary-color);
   font-weight: 700;
+  font-size: 24px;
 }
 
-.btn-primary {
+/* Buttons with modern styling */
+.btn, .telegram-btn, .btn-primary, .btn-telegram {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  padding: 12px 30px;
+  box-shadow: var(--shadow-md);
 }
 
-.btn-primary:hover {
-  background-color: #e55a5a;
-  border-color: #e55a5a;
+.btn:hover, .telegram-btn:hover, .btn-primary:hover, .btn-telegram:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: #C471ED;
+}
+
+.btn:active, .telegram-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Product cards with animations */
+.product-card, .img-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.product-card:hover, .img-box:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Modern gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #FF6B9D 0%, #C471ED 100%);
+}
+
+.gradient-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Modern navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* SVG Icon Styles */
@@ -228,4 +315,67 @@
 .floating-telegram-btn svg {
   width: 24px;
   height: 24px;
+}
+
+/* Enhanced Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Крупные кнопки на мобильных */
+  .telegram-btn {
+    padding: 14px 25px !important;
+    font-size: 15px;
+    min-height: 48px;
+  }
+  
+  /* Увеличить размер текста на мобильных */
+  body, p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Крупные кнопки - минимум 44x44px (Apple guidelines) */
+  .btn, .telegram-btn {
+    min-height: 44px;
+    padding: 12px 25px;
+  }
+  
+  .floating-telegram-btn {
+    min-height: 50px;
+    padding: 12px 20px;
+  }
+  
+  .language-switcher button {
+    min-height: 36px;
+    font-size: 12px;
+  }
+}
+
+/* Extra small devices (phones, 320px and up) */
+@media (max-width: 480px) {
+  .language-switcher {
+    flex-wrap: wrap;
+  }
+  
+  .language-switcher button {
+    padding: 8px 12px;
+    font-size: 11px;
+    flex: 1;
+    min-width: auto;
+  }
+  
+  /* Упрощаем кнопки на очень маленьких экранах */
+  .telegram-btn {
+    padding: 10px 20px !important;
+  }
+  
+  .floating-telegram-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 0;
+    flex-direction: column;
+  }
+  
+  .floating-telegram-btn span {
+    display: none;
+  }
 }

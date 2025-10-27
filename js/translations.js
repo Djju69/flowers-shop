@@ -236,9 +236,39 @@ function changeLanguage(lang) {
   document.documentElement.lang = lang;
 }
 
+// Определить язык браузера при первом посещении
+function detectBrowserLanguage() {
+  const browserLang = navigator.language.slice(0, 2).toLowerCase(); // 'ru', 'en', 'vi', etc
+  const supportedLangs = ['ru', 'en', 'vi'];
+  
+  // Проверяем, поддерживается ли язык браузера
+  if (supportedLangs.includes(browserLang)) {
+    return browserLang;
+  }
+  
+  // Проверяем полный код языка (например, 'en-US' -> 'en')
+  const fullLang = navigator.language.toLowerCase();
+  for (let lang of supportedLangs) {
+    if (fullLang.startsWith(lang)) {
+      return lang;
+    }
+  }
+  
+  // По умолчанию русский
+  return 'ru';
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('language') || 'ru';
+  // Получаем сохраненный язык или определяем по браузеру
+  let savedLang = localStorage.getItem('language');
+  
+  // Если язык не сохранен - определяем по браузеру
+  if (!savedLang) {
+    savedLang = detectBrowserLanguage();
+    localStorage.setItem('language', savedLang);
+  }
+  
   changeLanguage(savedLang);
   
   // Добавляем обработчики для кнопок переключения языка
