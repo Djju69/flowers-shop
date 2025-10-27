@@ -61,6 +61,12 @@ const translations = {
     orderRedirectText: "Для оформления заказа перейдите в наш Telegram бот",
     openTelegramBot: "Открыть Telegram бот",
     
+    // Корзина
+    cart: "Корзина",
+    total: "Итого:",
+    emptyCart: "Ваша корзина пуста",
+    startShopping: "Начать покупки",
+    
     // Футер
     allRightsReserved: "Все права защищены",
     poweredBy: "Создано с помощью",
@@ -132,6 +138,12 @@ const translations = {
     orderRedirectText: "To place an order, go to our Telegram bot",
     openTelegramBot: "Open Telegram Bot",
     
+    // Корзина
+    cart: "Cart",
+    total: "Total:",
+    emptyCart: "Your cart is empty",
+    startShopping: "Start Shopping",
+    
     // Футер
     allRightsReserved: "All Rights Reserved",
     poweredBy: "Powered by",
@@ -202,6 +214,12 @@ const translations = {
     orderRedirect: "Xử lý đơn hàng",
     orderRedirectText: "Để đặt hàng, hãy vào bot Telegram của chúng tôi",
     openTelegramBot: "Mở bot Telegram",
+    
+    // Корзина
+    cart: "Giỏ hàng",
+    total: "Tổng:",
+    emptyCart: "Giỏ hàng của bạn trống",
+    startShopping: "Bắt đầu mua sắm",
     
     // Футер
     allRightsReserved: "Tất cả quyền được bảo lưu",

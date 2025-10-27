@@ -80,6 +80,7 @@
   background: var(--beige);
   border-radius: 50%;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cart-btn img {

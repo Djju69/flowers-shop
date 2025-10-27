@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="корзина, заказ цветов, Нячанг" />
+  <meta name="description" content="Корзина товаров - Лавка цветов Нячанг" />
+  <meta name="author" content="Лавка цветов Нячанг" />
+
+  <title data-translate="cart">Корзина - Лавка цветов Нячанг</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css" />
+  
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- custom styles -->
+  <link href="css/custom-styles.css" rel="stylesheet" />
+  <!-- hero styles -->
+  <link href="css/hero-styles.css" rel="stylesheet" />
+  
+  <style>
+    .cart-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+    }
+    
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background: white;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    .cart-item-info {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    
+    .cart-item-info h3 {
+      color: var(--brown);
+      margin-bottom: 5px;
+    }
+    
+    .cart-item-info p {
+      color: var(--orange);
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    .btn-remove {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .btn-remove:hover {
+      background: #c82333;
+    }
+    
+    .cart-total {
+      background: var(--beige);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 30px 0;
+      border: 3px solid var(--gold);
+    }
+    
+    .cart-total strong {
+      font-size: 28px;
+      color: var(--brown);
+    }
+    
+    #totalPrice {
+      color: var(--orange);
+    }
+    
+    .btn-checkout {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--pink) 0%, #D81B7E 100%);
+      color: white;
+      border: 3px solid var(--gold);
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-checkout:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(233, 30, 140, 0.4);
+    }
+    
+    .empty-cart {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+    }
+    
+    .empty-cart h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    .btn-shopping {
+      margin-top: 20px;
+      padding: 15px 40px;
+      background: var(--pink);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="Лавка цветов Нячанг" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span data-translate="siteName" class="logo-text" style="display:none;">
+              Лавка цветов Нячанг
+            </span>
+          </a>
+          
+          <!-- Language Selector -->
+          <div class="lang-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+              <option value="ru" selected>🇷🇺 RU</option>
+              <option value="en">🇬🇧 EN</option>
+              <option value="vi">🇻🇳 VI</option>
+            </select>
+          </div>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html" data-translate="home">Главная</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html" data-translate="about">О нас</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="gallery.html" data-translate="catalog">Каталог</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html" data-translate="contacts">Контакты</a>
+                </li>
+              </ul>
+            </div>
+            <div class="quote_btn-container">
+              <a href="gallery.html" class="btn" data-translate="catalog">Каталог</a>
+              <a href="cart.html" class="cart-btn">
+                <img src="images/cart.png" alt="">
+                <span class="cart-count" id="cartCount">0</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="cart-container">
+    <h1 style="text-align: center; color: var(--brown); margin-bottom: 30px;">🛒 <span data-translate="cart">Корзина</span></h1>
+    
+    <div id="cartItems"></div>
+    
+    <div class="cart-total" id="cartTotal" style="display:none;">
+      <strong data-translate="total">Итого: <span id="totalPrice">0 VND</span></strong>
+      <button class="btn-checkout" onclick="checkout()" data-translate="checkout">
+        Оформить заказ в Telegram
+      </button>
+    </div>
+    
+    <div class="empty-cart" id="emptyCart">
+      <h2>🛍️</h2>
+      <p style="font-size: 20px;" data-translate="emptyCart">Ваша корзина пуста</p>
+      <a href="gallery.html" class="btn-shopping" data-translate="startShopping">
+        Начать покупки
+      </a>
+    </div>
+  </div>
+
+  <script src="vendor/jquery-3.4.1.min.js"></script>
+  <script src="vendor/bootstrap.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/cart.js"></script>
+
+</body>
+</html>

@@ -92,6 +92,18 @@ body {
   font-size: 24px;
 }
 
+.logo-img {
+  height: 50px;
+  width: auto;
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 40px;
+  }
+}
+
 /* Buttons with modern styling - LOGO COLORS */
 .btn, .btn-primary {
   background: linear-gradient(135deg, var(--pink) 0%, #D81B7E 100%);

@@ -46,7 +46,8 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
-            <span data-translate="siteName">
+            <img src="images/logo.png" alt="Лавка цветов Нячанг" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span data-translate="siteName" class="logo-text" style="display:none;">
               Лавка цветов Нячанг
             </span>
           </a>
@@ -88,8 +89,9 @@
                 </svg>
                 <span data-translate="orderButton">Заказать в Telegram</span>
               </a>
-              <a href="">
+              <a href="cart.html" class="cart-btn">
                 <img src="images/cart.png" alt="">
+                <span class="cart-count" id="cartCount">0</span>
               </a>
               <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
