@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="каталог, цветы, букеты, Нячанг" />
+  <meta name="description" content="Каталог цветов и букетов - Лавка цветов Нячанг" />
+  <meta name="author" content="Лавка цветов Нячанг" />
+
+  <title data-translate="catalog">Каталог - Лавка цветов Нячанг</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css" />
+  
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- custom styles -->
+  <link href="css/custom-styles.css" rel="stylesheet" />
+  
+  <style>
+    .products-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .product-card {
+      background: white;
+      border: 3px solid var(--gold);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(212, 165, 116, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 32px rgba(212, 165, 116, 0.4);
+      border-color: var(--pink);
+    }
+    
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .product-card h3 {
+      padding: 15px;
+      font-size: 20px;
+      color: var(--brown);
+      margin: 0;
+    }
+    
+    .product-card p {
+      padding: 0 15px 15px;
+      color: #666;
+      min-height: 60px;
+    }
+    
+    .product-card .price {
+      padding: 0 15px 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--orange);
+    }
+    
+    .product-card .btn-add {
+      margin: 0 15px 15px;
+      width: calc(100% - 30px);
+      padding: 12px;
+      background: linear-gradient(135deg, var(--pink) 0%, #D81B7E 100%);
+      color: white;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .product-card .btn-add:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(233, 30, 140, 0.4);
+    }
+    
+    .empty-products {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-light);
+    }
+    
+    .empty-products h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    @media (max-width: 1199px) and (min-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-card .btn-add {
+        min-height: 48px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="Лавка цветов Нячанг" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span data-translate="siteName" class="logo-text" style="display:none;">Лавка цветов Нячанг</span>
+          </a>
+          
+          <div class="lang-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+              <option value="ru" selected>🇷🇺 RU</option>
+              <option value="en">🇬🇧 EN</option>
+              <option value="vi">🇻🇳 VI</option>
+            </select>
+          </div>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html" data-translate="home">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html" data-translate="about">О нас</a></li>
+                <li class="nav-item active"><a class="nav-link" href="catalog.html" data-translate="catalog">Каталог</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" data-translate="contacts">Контакты</a></li>
+              </ul>
+            </div>
+            <div class="quote_btn-container">
+              <a href="https://t.me/nhatrangflowers_bot" class="btn" target="_blank" data-translate="orderButton">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-.14.03-2.35 1.5-.22.14-.42.21-.6.2-.19-.01-.55-.11-.82-.2-.33-.12-.59-.18-.57-.38.02-.19.32-.39.89-.59 3.5-1.52 5.83-2.52 6.86-3.02 3.24-1.57 3.91-.65 3.91 3.85z" fill="white"/>
+                </svg>
+                Заказать
+              </a>
+              <a href="cart.html" class="cart-btn">
+                <img src="images/cart.png" alt="">
+                <span class="cart-count" id="cartCount">0</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <div class="products-container">
+    <h1 style="text-align: center; color: var(--brown); margin-bottom: 30px;" data-translate="catalog">Каталог товаров</h1>
+    
+    <div id="productsGrid" class="products-grid"></div>
+    
+    <div class="empty-products" id="emptyProducts">
+      <h2>🌺</h2>
+      <p style="font-size: 20px;" data-translate="noProducts">Товары пока не добавлены. Используйте админ-панель для добавления товаров.</p>
+    </div>
+  </div>
+
+  <script src="vendor/jquery-3.4.1.min.js"></script>
+  <script src="vendor/bootstrap.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/cart.js"></script>
+  
+  <script>
+    // Отображение товаров
+    function displayProducts() {
+      const products = JSON.parse(localStorage.getItem('products')) || [];
+      const grid = document.getElementById('productsGrid');
+      const emptyProducts = document.getElementById('emptyProducts');
+      
+      if (products.length === 0) {
+        grid.innerHTML = '';
+        emptyProducts.style.display = 'block';
+        return;
+      }
+      
+      emptyProducts.style.display = 'none';
+      
+      const currentLang = localStorage.getItem('language') || 'ru';
+      
+      grid.innerHTML = products.map(product => `
+        <div class="product-card">
+          <img src="${product.image}" alt="${product.name[currentLang]}">
+          <h3>${product.name[currentLang]}</h3>
+          <p>${product.description[currentLang]}</p>
+          <div class="price">${product.price.toLocaleString()} VND</div>
+          <button class="btn-add" onclick="addToCart(${product.id})" data-translate="addToCart">
+            В корзину
+          </button>
+        </div>
+      `).join('');
+    }
+    
+    // При загрузке страницы
+    document.addEventListener('DOMContentLoaded', () => {
+      displayProducts();
+      
+      // Обновить при изменении языка
+      const select = document.getElementById('languageSelect');
+      if (select) {
+        select.addEventListener('change', displayProducts);
+      }
+    });
+  </script>
+</body>
+</html>
