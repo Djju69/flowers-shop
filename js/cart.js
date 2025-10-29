@@ -100,6 +100,14 @@ function checkout() {
   
   // Перенаправление на Telegram бота
   window.open(`https://t.me/nhatrangflowers_bot?text=${encodeURIComponent(message)}`, '_blank');
+  
+  // Очистить корзину после отправки
+  cart = [];
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  if (document.getElementById('cartItems')) {
+    displayCart();
+  }
 }
 
 // Инициализация при загрузке страницы
